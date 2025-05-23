@@ -16,19 +16,15 @@ class HelloController
     /**
      * Index action.
      *
-     * @param string $name User input
-     *
      * @return Response HTTP response
      */
     #[Route(
-        '/hello/{name}',
-        name: 'hello_index',
-        requirements: ['name' => '[a-zA-Z]+'],
-        defaults: ['name' => 'World'],
+        '/hello', 
+        name: 'hello_index', 
         methods: 'GET'
     )]
-    public function index(string $name): Response
+    public function index(): Response
     {
-        return new Response('Hello '.$name.'!');
+        return new Response('Hello World!');
     }
 }
