@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.category_list'|trans }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.category_list'|trans }}</h1>
+
+    {% if categories is defined and categories|length %}
+
+        <ul>
+            {% for category in categories %}
+                <li>
+                    <a href="{{ path('category_view', {id: category.id}) }}">
+                        {{ category.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>{{ 'message.category_empty_list'|trans }}</p>
+    {% endif %}
+{% endblock %}
