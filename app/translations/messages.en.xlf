@@ -78,6 +78,96 @@
         <source>message.category_empty_list</source>
         <target>No categories available.</target>
       </trans-unit>
+      <trans-unit id="action.create">
+        <source>action.create</source>
+        <target>Add new category</target>
+      </trans-unit>
+      <trans-unit id="action.edit">
+        <source>action.edit</source>
+        <target>Edit</target>
+      </trans-unit>
+      <trans-unit id="action.delete">
+        <source>action.delete</source>
+        <target>Delete</target>
+      </trans-unit>
+      <trans-unit id="message.confirm_delete">
+        <source>message.confirm_delete</source>
+        <target>Are you sure you want to delete this category?</target>
+      </trans-unit>
+      <trans-unit id="action.save">
+        <source>action.save</source>
+        <target>Save</target>
+      </trans-unit>
+      <trans-unit id="title.category_create">
+        <source>title.category_create</source>
+        <target>Add new category</target>
+      </trans-unit>
+      <trans-unit id="title.category_edit">
+        <source>title.category_edit</source>
+        <target>Edit category #%id%</target>
+      </trans-unit>
+      <trans-unit id="label_category">
+        <source>label_category</source>
+        <target>Category</target>
+      </trans-unit>
+      <trans-unit id="message.category_contains_tasks">
+        <source>message.category_contains_tasks</source>
+        <target>Error! Category contains tasks. </target>
+      </trans-unit>
+      <trans-unit id="message.form_error">
+        <source>message.form_error</source>
+        <target>Error</target>
+      </trans-unit>
+      <trans-unit id="message.created_successfully">
+        <source>message.created_successfully</source>
+        <target>Success!</target>
+      </trans-unit>
+      <trans-unit id="title.task_create">
+        <source>title.task_create</source>
+        <target>Create task</target>
+      </trans-unit>
+      <trans-unit id="title.task_edit">
+        <source>title.task_edit</source>
+        <target>Edit task</target>
+      </trans-unit>
+      <trans-unit id="title.task_delete">
+        <source>title.task_delete</source>
+        <target>Delete task</target>
+      </trans-unit>
+      <trans-unit id="action.create_task">
+        <source>action.create_task</source>
+        <target>Create task</target>
+      </trans-unit>
+      <trans-unit id="action.update">
+        <source>action.update</source>
+        <target>Update</target>
+      </trans-unit>
+      <trans-unit id="message.task_created">
+        <source>message.task_created</source>
+        <target>Task was created!</target>
+      </trans-unit>
+      <trans-unit id="message.task_updated">
+        <source>message.task_updated</source>
+        <target>Task was updated!</target>
+      </trans-unit>
+      <trans-unit id="message.task_deleted">
+        <source>message.task_deleted</source>
+        <target>Task was deleted!</target>
+      </trans-unit>
+      <trans-unit id="task.field.title">
+        <source>task.field.title</source>
+        <target>Title</target>
+      </trans-unit>
+      <trans-unit id="task.field.category">
+        <source>task.field.category</source>
+        <target>Category</target>
+      </trans-unit>
+      <trans-unit id="message.deleted_successfully">
+        <source>message.deleted_successfully</source>
+        <target>Deleted!</target>
+      </trans-unit>
+
+
 
     </body>
   </file>

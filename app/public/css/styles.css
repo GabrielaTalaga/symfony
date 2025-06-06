@@ -1,3 +1,11 @@
 p {
     color: red;
 }
+label.required::after {
+    content: ' *' !important;
+    color: red !important;
+}
+
+label.required {
+    font-weight: bold !important;
+}

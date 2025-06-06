@@ -1,29 +1,46 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ 'title.category_view'|trans({'%title%': category.title}) }}
+    {% if category is defined and category %}
+        {{ 'title.category_view'|trans({'%title%': category.title}) }}
+    {% else %}
+        {{ 'title.category_not_found'|trans }}
+    {% endif %}
 {% endblock %}
 
 {% block body %}
-    <h1>{{ 'title.category_view'|trans({'%title%': category.title}) }}</h1>
+    {% if category is defined and category %}
+        <h1>{{ 'title.category_view'|trans({'%title%': category.title}) }}</h1>
 
-    <dl>
-        <dt>{{ 'label.id'|trans }}</dt>
-        <dd>{{ category.id }}</dd>
+        <dl>
+            <dt>{{ 'label.id'|trans }}</dt>
+            <dd>{{ category.id }}</dd>
 
-        <dt>{{ 'label.title'|trans }}</dt>
-        <dd>{{ category.title }}</dd>
+            <dt>{{ 'label.title'|trans }}</dt>
+            <dd>{{ category.title }}</dd>
 
-        <dt>{{ 'label.created_at'|trans }}</dt>
-        <dd>{{ category.createdAt|date('Y-m-d H:i') }}</dd>
+            <dt>{{ 'label.created_at'|trans }}</dt>
+            <dd>{{ category.createdAt|date('Y-m-d H:i') }}</dd>
 
-        <dt>{{ 'label.updated_at'|trans }}</dt>
-        <dd>{{ category.updatedAt|date('Y-m-d H:i') }}</dd>
-    </dl>
+            <dt>{{ 'label.updated_at'|trans }}</dt>
+            <dd>{{ category.updatedAt|date('Y-m-d H:i') }}</dd>
+        </dl>
 
-    <p>
-        <a href="{{ path('category_index') }}">
-            ← {{ 'action.back_to_list'|trans }}
-        </a>
-    </p>
+        <p>
+            <a href="{{ path('category_index') }}">
+                ← {{ 'action.back_to_list'|trans }}
+            </a>
+        </p>
+    {% else %}
+        {% include 'default/_single_alert_message.html.twig' with {
+            type: 'danger',
+            message: 'message.category_not_found'|trans
+        } %}
+        <p>
+            <a href="{{ path('category_index') }}" class="btn btn-primary">
+                {{ 'action.back_to_list'|trans }}
+            </a>
+        </p>
+    {% endif %}
+
 {% endblock %}

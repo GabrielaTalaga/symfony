@@ -7,18 +7,45 @@
 {% block body %}
     <h1>{{ 'title.category_list'|trans }}</h1>
 
-    {% if categories is defined and categories|length %}
+    <a href="{{ path('category_create') }}" class="btn btn-primary mb-3">
+        {{ 'action.create'|trans }}
+    </a>
 
-        <ul>
-            {% for category in categories %}
-                <li>
-                    <a href="{{ path('category_view', {id: category.id}) }}">
-                        {{ category.title }}
-                    </a>
+    {% if pagination is defined and pagination|length %}
+        <ul class="list-group">
+            {% for category in pagination %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <a href="{{ path('category_view', {id: category.id}) }}">
+                            {{ category.title }}
+                        </a>
+                    </div>
+                    <div>
+                        <a href="{{ path('category_edit', {id: category.id}) }}" class="btn btn-sm btn-outline-secondary">
+                            {{ 'action.edit'|trans }}
+                        </a>
+                        <form method="post"
+                              action="{{ path('category_delete', {id: category.id}) }}"
+                              style="display:inline"
+                              onsubmit="return confirm('{{ 'message.confirm_delete'|trans }}');">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ category.id) }}">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button class="btn btn-sm btn-outline-danger">
+                                {{ 'action.delete'|trans }}
+                            </button>
+                        </form>
+
+                    </div>
                 </li>
             {% endfor %}
         </ul>
+
+        {{ knp_pagination_render(pagination) }}
     {% else %}
-        <p>{{ 'message.category_empty_list'|trans }}</p>
+        {% include 'default/_single_alert_message.html.twig' with {
+            type: 'warning',
+            message: 'message.category_empty_list'|trans
+        } %}
     {% endif %}
+
 {% endblock %}
