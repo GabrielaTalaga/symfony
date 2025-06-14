@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'avatar.edit_title'|trans }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'avatar.edit_header'|trans }}</h1>
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn btn-primary">{{ 'button.save'|trans }}</button>
+    {{ form_end(form) }}
+
+    <a href="{{ path('task_index') }}">{{ 'link.back_to_tasks'|trans }}</a>
+{% endblock %}

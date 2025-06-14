@@ -16,6 +16,63 @@
     {% endblock %}
 </head>
 <body>
+
+
+
+<header class="p-3 bg-light border-bottom mb-3">
+    <div class="container d-flex justify-content-between align-items-center">
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <div>
+                <strong>{{ app.user.email }}</strong>
+            </div>
+
+            <div>
+
+                <a href="{{ path('avatar_create') }}" class="btn btn-sm btn-success me-2">
+                    {{ 'avatar.action.create'|trans }}
+                </a>
+
+                {% if app.user.avatar %}
+                    <a href="{{ path('avatar_edit', {'id': app.user.avatar.id}) }}" class="btn btn-sm btn-primary me-2">
+                        {{ 'avatar.action.edit'|trans }}
+                    </a>
+
+                    <form method="post" action="{{ path('avatar_delete', {'id': app.user.avatar.id}) }}"
+                          style="display:inline-block;"
+                          onsubmit="return confirm('{{ 'avatar.action.delete_confirm'|trans }}');">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ app.user.avatar.id) }}">
+                        <button class="btn btn-sm btn-danger" type="submit">
+                            {{ 'avatar.action.delete'|trans }}
+                        </button>
+                    </form>
+                {% endif %}
+            </div>
+
+            <div>
+                <a href="{{ path('app_logout') }}" class="btn btn-outline-danger btn-sm">
+                    {{ 'action.logout'|trans }}
+                </a>
+                <a href="{{ path('app_change_password') }}" class="btn btn-outline-secondary btn-sm ms-2">
+                    {{ 'action.change_password'|trans }}
+                </a>
+            </div>
+        {% else %}
+            <div>
+                <a href="{{ path('app_login') }}" class="btn btn-outline-primary btn-sm">
+                    {{ 'action.login'|trans }}
+                </a>
+            </div>
+        {% endif %}
+    </div>
+</header>
+
+
+
+
+
+
+
+
 <main role="main" class="container-fluid">
     <div class="container-fluid">
         {% include 'default/_flash_messages.html.twig' %}

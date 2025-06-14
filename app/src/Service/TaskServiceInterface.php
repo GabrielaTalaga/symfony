@@ -6,8 +6,12 @@
 
 namespace App\Service;
 
+use App\Entity\User;
 use App\Entity\Task;
 use Knp\Component\Pager\Pagination\PaginationInterface;
+use App\Dto\TaskListInputFiltersDto;
+
+
 
 /**
  * Interface TaskServiceInterface.
@@ -17,11 +21,16 @@ interface TaskServiceInterface
     /**
      * Get paginated list.
      *
-     * @param int $page Page number
+     * @param int  $page    Page number
+     * @param User $author  Author of the tasks
+     * @param TaskListInputFiltersDto|null $filters Filters for task list (optional)
      *
      * @return PaginationInterface Paginated list
      */
-    public function getPaginatedList(int $page): PaginationInterface;
+    public function getPaginatedList(int $page, User $author, ?TaskListInputFiltersDto $filters = null): PaginationInterface;
+
+
+
 
     /**
      * Save entity.
@@ -36,4 +45,6 @@ interface TaskServiceInterface
      * @param Task $task Task entity
      */
     public function delete(Task $task): void;
+
+
 }

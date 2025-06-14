@@ -8,6 +8,8 @@ use Doctrine\Persistence\ManagerRegistry;
 
 /**
  * @extends ServiceEntityRepository<Tag>
+ *
+ * @method findOneByTitle(string $title)
  */
 class TagRepository extends ServiceEntityRepository
 {

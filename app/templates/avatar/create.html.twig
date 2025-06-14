@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'title.avatar_create'|trans }}{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1>{{ 'title.avatar_create'|trans }}</h1>
+
+        {% if app.user.avatar.filename is defined and app.user.avatar.filename|length %}
+            <div class="mb-3">
+                <p>{{ 'label.current_avatar'|trans }}</p>
+                <img class="nav-profile-img rounded" src="{{ asset(avatars_directory ~ app.user.avatar.filename) }}" alt="avatar" width="150">
+            </div>
+        {% endif %}
+
+        {{ form_start(form, {'attr': {'enctype': 'multipart/form-data'}}) }}
+        {{ form_row(form.file) }}
+        <button class="btn btn-primary">{{ 'action.save'|trans }}</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

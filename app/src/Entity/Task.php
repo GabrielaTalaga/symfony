@@ -6,9 +6,12 @@
 namespace App\Entity;
 
 use App\Repository\TaskRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
+use App\Entity\Enum\TaskStatus;
 
 /**
  * Class Task.
@@ -50,7 +53,7 @@ class Task
     /**
      * Comment.
      */
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(type: 'text', nullable: true)]
     private ?string $comment = null;
 
     /**
@@ -61,6 +64,35 @@ class Task
     #[ORM\ManyToOne(targetEntity: Category::class, fetch: 'EXTRA_LAZY')]
     #[ORM\JoinColumn(name: 'category_id', referencedColumnName: 'id', nullable: false)]
     private ?Category $category = null;
+
+    /**
+     * Tags.
+     *
+     * @var Collection<int, Tag>
+     */
+    #[ORM\ManyToMany(targetEntity: Tag::class, fetch: 'EXTRA_LAZY', orphanRemoval: true)]
+    #[ORM\JoinTable(name: 'tasks_tags')]
+    private Collection $tags;
+
+    /**
+     * Author.
+     */
+    #[ORM\ManyToOne(targetEntity: User::class, fetch: 'EXTRA_LAZY')]
+    #[ORM\JoinColumn(nullable: false, onDelete: 'CASCADE')]
+    #[Assert\NotBlank]
+    #[Assert\Type(User::class)]
+    private ?User $author;
+
+    #[ORM\Column(type: 'integer', enumType: TaskStatus::class)]
+    private TaskStatus $status;
+
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        $this->tags = new ArrayCollection();
+    }
 
     /**
      * Getter for Id.
@@ -179,5 +211,62 @@ class Task
         $this->category = $category;
 
         return $this;
+    }
+
+    /**
+     * Getter for tags.
+     *
+     * @return Collection<int, Tag> Tags collection
+     */
+    public function getTags(): Collection
+    {
+        return $this->tags;
+    }
+
+    /**
+     * Add tag.
+     *
+     * @param Tag $tag Tag entity
+     */
+    public function addTag(Tag $tag): void
+    {
+        if (!$this->tags->contains($tag)) {
+            $this->tags->add($tag);
+        }
+    }
+
+    /**
+     * Remove Tag.
+     *
+     * @param Tag $tag Tag entity
+     */
+    public function removeTag(Tag $tag): void
+    {
+        $this->tags->removeElement($tag);
+    }
+
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?User $author): static
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+
+
+    public function getStatus(): TaskStatus
+    {
+        return $this->status;
+    }
+
+
+    public function setStatus(TaskStatus $status): void
+    {
+        $this->status = $status;
     }
 }

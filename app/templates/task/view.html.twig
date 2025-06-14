@@ -18,6 +18,43 @@
             <dd>{{  task.title }}</dd>
             <dt>{{ 'label.category'|trans }}</dt>
             <dd>{{  task.category.title }}</dd>
+
+            <dt>{{ 'label.tags'|trans }}</dt>
+            <dd>
+                {% if task.tags is not empty %}
+                    {% set tagTitles = [] %}
+                    {% for tag in task.tags %}
+                        {% set tagTitles = tagTitles|merge([tag.title]) %}
+                    {% endfor %}
+                    {{ tagTitles|join(', ') }}
+                {% else %}
+                    <em>{{ 'message.no_tags'|trans }}</em>
+                {% endif %}
+            </dd>
+
+            <dt>{{ 'label.author'|trans }}</dt>
+            <dd>
+                {% if task.author is not null %}
+                    {{ task.author.email }}
+                {% else %}
+                    <em>(no author)</em>
+                {% endif %}
+            </dd>
+
+
+
+
+            <dt>{{ 'label.comment'|trans }}</dt>
+            <dd>
+                {% if task.comment is not empty %}
+                    {{ task.comment|markdown_to_html }}
+                {% else %}
+                    <em>{{ 'message.no_comment'|trans }}</em>
+                {% endif %}
+            </dd>
+
+
+
         </dl>
         <p>
             <a href="{{ url('task_index') }}" title="{{ 'action.back_to_list'|trans }}">

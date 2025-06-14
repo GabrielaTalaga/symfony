@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="en" datatype="plaintext" original="file.ext">
+  <file source-language="pl" datatype="plaintext" original="file.ext">
     <body>
       <trans-unit id="label.actions">
         <source>label.actions</source>
@@ -24,7 +24,7 @@
       </trans-unit>
       <trans-unit id="message.empty_list">
         <source>message.empty_list</source>
-        <target>List is empty.</target>
+        <target>The list is empty.</target>
       </trans-unit>
       <trans-unit id="message.record_not_found">
         <source>message.record_not_found</source>
@@ -32,43 +32,39 @@
       </trans-unit>
       <trans-unit id="title.record_list">
         <source>title.record_list</source>
-        <target>Records list</target>
-      </trans-unit>
-      <trans-unit id="title.record_view">
-        <source>title.record_view</source>
-        <target>Record view #%id%</target>
-      </trans-unit>
-      <trans-unit id="action.view">
-        <source>action.view</source>
-        <target>View</target>
-      </trans-unit>
-    <trans-unit id="title.task_details">
-        <source>title.task_details</source>
-        <target>Task details #%id%</target>
-    </trans-unit>
-    <trans-unit id="title.task_list">
-        <source>title.task_list</source>
-        <target>Task list</target>
-      </trans-unit>
-      <trans-unit id="label.created_at">
-        <source>label.created_at</source>
-        <target>Created at</target>
-      </trans-unit>
-      <trans-unit id="label.updated_at">
-        <source>label.updated_at</source>
-        <target>Updated at</target>
-      </trans-unit>
-      <trans-unit id="label.category">
-        <source>label.category</source>
-        <target>Category</target>
+        <target>Record List</target>
       </trans-unit>
       <trans-unit id="action.back_to_list">
         <source>action.back_to_list</source>
         <target>Back to list</target>
       </trans-unit>
+      <trans-unit id="action.view">
+        <source>action.view</source>
+        <target>View</target>
+      </trans-unit>
+      <trans-unit id="title.task_list">
+        <source>title.task_list</source>
+        <target>Task List</target>
+      </trans-unit>
+      <trans-unit id="title.task_details">
+        <source>title.task_details</source>
+        <target>Task Details #%id%</target>
+      </trans-unit>
+      <trans-unit id="label.created_at">
+        <source>label.created_at</source>
+        <target>Created At</target>
+      </trans-unit>
+      <trans-unit id="label.updated_at">
+        <source>label.updated_at</source>
+        <target>Updated At</target>
+      </trans-unit>
+      <trans-unit id="label.category">
+        <source>label.category</source>
+        <target>Category</target>
+      </trans-unit>
       <trans-unit id="title.category_list">
         <source>title.category_list</source>
-        <target>Category list</target>
+        <target>Category List</target>
       </trans-unit>
       <trans-unit id="title.category_view">
         <source>title.category_view</source>
@@ -110,10 +106,6 @@
         <source>label_category</source>
         <target>Category</target>
       </trans-unit>
-      <trans-unit id="message.category_contains_tasks">
-        <source>message.category_contains_tasks</source>
-        <target>Error! Category contains tasks. </target>
-      </trans-unit>
       <trans-unit id="message.form_error">
         <source>message.form_error</source>
         <target>Error</target>
@@ -121,6 +113,10 @@
       <trans-unit id="message.created_successfully">
         <source>message.created_successfully</source>
         <target>Success!</target>
+      </trans-unit>
+      <trans-unit id="message.category_contains_tasks">
+        <source>message.category_contains_tasks</source>
+        <target>Error! Category contains tasks.</target>
       </trans-unit>
       <trans-unit id="title.task_create">
         <source>title.task_create</source>
@@ -136,7 +132,7 @@
       </trans-unit>
       <trans-unit id="action.create_task">
         <source>action.create_task</source>
-        <target>Create task</target>
+        <target>Add task</target>
       </trans-unit>
       <trans-unit id="action.update">
         <source>action.update</source>
@@ -144,15 +140,15 @@
       </trans-unit>
       <trans-unit id="message.task_created">
         <source>message.task_created</source>
-        <target>Task was created!</target>
+        <target>Task has been created.</target>
       </trans-unit>
       <trans-unit id="message.task_updated">
         <source>message.task_updated</source>
-        <target>Task was updated!</target>
+        <target>Task has been updated.</target>
       </trans-unit>
       <trans-unit id="message.task_deleted">
         <source>message.task_deleted</source>
-        <target>Task was deleted!</target>
+        <target>Task has been deleted.</target>
       </trans-unit>
       <trans-unit id="task.field.title">
         <source>task.field.title</source>
@@ -166,9 +162,178 @@
         <source>message.deleted_successfully</source>
         <target>Deleted!</target>
       </trans-unit>
+      <trans-unit id="message.no_tags">
+        <source>message.no_tags</source>
+        <target>No tags!</target>
+      </trans-unit>
+      <trans-unit id="title.login">
+        <source>title.login</source>
+        <target>Log in</target>
+      </trans-unit>
+      <trans-unit id="label.email">
+        <source>label.email</source>
+        <target>Email</target>
+      </trans-unit>
+      <trans-unit id="label.password">
+        <source>label.password</source>
+        <target>Password</target>
+      </trans-unit>
+      <trans-unit id="action.login">
+        <source>action.login</source>
+        <target>Log in</target>
+      </trans-unit>
+      <trans-unit id="action.logout">
+        <source>action.logout</source>
+        <target>Log out</target>
+      </trans-unit>
+      <trans-unit id="message.already_logged_in_as">
+        <source>message.already_logged_in_as</source>
+        <target>You are already logged in as %user%</target>
+      </trans-unit>
+      <trans-unit id="title.change_password">
+        <source>title.change_password</source>
+        <target>Change password</target>
+      </trans-unit>
+      <trans-unit id="label.new_password">
+        <source>label.new_password</source>
+        <target>New password</target>
+      </trans-unit>
+      <trans-unit id="label.repeat_password">
+        <source>label.repeat_password</source>
+        <target>Repeat password</target>
+      </trans-unit>
+      <trans-unit id="error.passwords_do_not_match">
+        <source>error.passwords_do_not_match</source>
+        <target>Passwords do not match.</target>
+      </trans-unit>
+      <trans-unit id="error.password_required">
+        <source>error.password_required</source>
+        <target>Password is required.</target>
+      </trans-unit>
+      <trans-unit id="error.password_too_short">
+        <source>error.password_too_short</source>
+        <target>Password must be at least 6 characters.</target>
+      </trans-unit>
+      <trans-unit id="message.password_changed_successfully">
+        <source>message.password_changed_successfully</source>
+        <target>Password has been changed.</target>
+      </trans-unit>
+      <trans-unit id="action.change_password">
+        <source>action.change_password</source>
+        <target>Change password</target>
+      </trans-unit>
+      <trans-unit id="label.author">
+        <source>label.author</source>
+        <target>Author</target>
+      </trans-unit>
+      <trans-unit id="title.user_edit">
+        <source>title.user_edit</source>
+        <target>Edit user</target>
+      </trans-unit>
+      <trans-unit id="action.back">
+        <source>action.back</source>
+        <target>Back</target>
+      </trans-unit>
+      <trans-unit id="title.user_management">
+        <source>title.user_management</source>
+        <target>User management</target>
+      </trans-unit>
+      <trans-unit id="title.users">
+        <source>title.users</source>
+        <target>Users</target>
+      </trans-unit>
+      <trans-unit id="label.roles">
+        <source>label.roles</source>
+        <target>Roles</target>
+      </trans-unit>
+      <trans-unit id="message.confirm_delete_user">
+        <source>message.confirm_delete_user</source>
+        <target>Are you sure you want to delete this user?</target>
+      </trans-unit>
+      <trans-unit id="message.no_users">
+        <source>message.no_users</source>
+        <target>No users.</target>
+      </trans-unit>
+      <trans-unit id="title.user_details">
+        <source>title.user_details</source>
+        <target>User details</target>
+      </trans-unit>
+      <trans-unit id="title.avatar_create">
+        <source>title.avatar_create</source>
+        <target>Add avatar</target>
+      </trans-unit>
+      <trans-unit id="label.current_avatar">
+        <source>label.current_avatar</source>
+        <target>Current avatar</target>
+      </trans-unit>
+      <trans-unit id="avatar.delete.confirm">
+        <source>avatar.delete.confirm</source>
+        <target>Are you sure you want to delete this avatar?</target>
+      </trans-unit>
+      <trans-unit id="avatar.delete.button">
+        <source>avatar.delete.button</source>
+        <target>Delete avatar</target>
+      </trans-unit>
+      <trans-unit id="avatar.edit_title">
+        <source>avatar.edit_title</source>
+        <target>Edit avatar</target>
+      </trans-unit>
+      <trans-unit id="avatar.edit_header">
+        <source>avatar.edit_header</source>
+        <target>Avatar editing</target>
+      </trans-unit>
+      <trans-unit id="button.save">
+        <source>button.save</source>
+        <target>Save</target>
+      </trans-unit>
+      <trans-unit id="link.back_to_tasks">
+        <source>link.back_to_tasks</source>
+        <target>Back to tasks</target>
+      </trans-unit>
+      <trans-unit id="title.record_view">
+        <source>title.record_view</source>
+        <target>Record #%id%</target>
+      </trans-unit>
+      <trans-unit id="action.register">
+        <source>action.register</source>
+        <target>Register</target>
+      </trans-unit>
+      <trans-unit id="avatar.action.create">
+        <source>avatar.action.create</source>
+        <target>Create avatar</target>
+      </trans-unit>
+      <trans-unit id="avatar.action.edit">
+        <source>avatar.action.edit</source>
+        <target>Edit avatar</target>
+      </trans-unit>
+      <trans-unit id="avatar.action.delete">
+        <source>avatar.action.delete</source>
+        <target>Delete avatar</target>
+      </trans-unit>
+      <trans-unit id="avatar.action.delete_confirm">
+        <source>avatar.action.delete_confirm</source>
+        <target>Are you sure you want to delete this avatar?</target>
+      </trans-unit>
+      <trans-unit id="label.avatar">
+        <source>label.avatar</source>
+        <target>Avatar:</target>
+      </trans-unit>
+            <trans-unit id="form.email">
+              <source>form.email</source>
+              <target>Email:</target>
+            </trans-unit>
 
+            <trans-unit id="form.password">
+              <source>form.password</source>
+              <target>Hasło:</target>
+            </trans-unit>
 
+            <trans-unit id="form.password_repeat">
+              <source>form.password_repeat</source>
+              <target>Powtórz hasło:</target>
+            </trans-unit>
 
-    </body>
-  </file>
-</xliff>
+          </body>
+        </file>
+      </xliff>
+

@@ -6,6 +6,7 @@
 
 namespace App\Controller;
 
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use App\Entity\Category;
 use App\Form\Type\CategoryType;
 use App\Service\CategoryServiceInterface;
@@ -20,6 +21,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  * Class CategoryController.
  */
 #[Route('/category')]
+#[IsGranted('ROLE_ADMIN')]
 class CategoryController extends AbstractController
 {
     /**

@@ -35,16 +35,16 @@
         <target>Lista rekordów</target>
       </trans-unit>
 
-    <trans-unit id="action.back_to_list">
-      <source>action.back_to_list</source>
-      <target>Powrót do listy</target>
-    </trans-unit>
+      <trans-unit id="action.back_to_list">
+        <source>action.back_to_list</source>
+        <target>Powrót do listy</target>
+      </trans-unit>
 
-    <trans-unit id="action.view">
-      <source>action.view</source>
-      <target>Podgląd</target>
-    </trans-unit>
-    <trans-unit id="title.task_list">
+      <trans-unit id="action.view">
+        <source>action.view</source>
+        <target>Podgląd</target>
+      </trans-unit>
+      <trans-unit id="title.task_list">
         <source>title.task_list</source>
         <target>Lista zadań</target>
       </trans-unit>
@@ -164,9 +164,209 @@
         <source>message.deleted_successfully</source>
         <target>Usunięto!</target>
       </trans-unit>
+      <trans-unit id="message.no_tags">
+        <source>message.no_tags</source>
+        <target>Brak tagów!</target>
+      </trans-unit>
+
+      <trans-unit id="title.login">
+        <source>title.login</source>
+        <target>Zaloguj się</target>
+      </trans-unit>
+      <trans-unit id="label.email">
+        <source>label.email</source>
+        <target>Email</target>
+      </trans-unit>
+      <trans-unit id="label.password">
+        <source>label.password</source>
+        <target>Hasło</target>
+      </trans-unit>
+      <trans-unit id="action.login">
+        <source>action.login</source>
+        <target>Zaloguj</target>
+      </trans-unit>
+      <trans-unit id="action.logout">
+        <source>action.logout</source>
+        <target>Wyloguj</target>
+      </trans-unit>
+      <trans-unit id="message.already_logged_in_as">
+        <source>message.already_logged_in_as</source>
+        <target>Jesteś już zalogowanx jako %user%</target>
+      </trans-unit>
+
+      <trans-unit id="title.change_password">
+        <source>title.change_password</source>
+        <target>Zmiana hasła</target>
+      </trans-unit>
+      <trans-unit id="label.new_password">
+        <source>label.new_password</source>
+        <target>Nowe hasło</target>
+      </trans-unit>
+      <trans-unit id="label.repeat_password">
+        <source>label.repeat_password</source>
+        <target>Powtórz hasło</target>
+      </trans-unit>
+      <trans-unit id="error.passwords_do_not_match">
+        <source>error.passwords_do_not_match</source>
+        <target>Hasła nie są takie same.</target>
+      </trans-unit>
+      <trans-unit id="error.password_required">
+        <source>error.password_required</source>
+        <target>Wprowadź hasło.</target>
+      </trans-unit>
+      <trans-unit id="error.password_too_short">
+        <source>error.password_too_short</source>
+        <target>Hasło musi mieć co najmniej 6 znaków.</target>
+      </trans-unit>
+      <trans-unit id="message.password_changed_successfully">
+        <source>message.password_changed_successfully</source>
+        <target>Hasło zostało zmienione.</target>
+      </trans-unit>
+      <trans-unit id="action.change_password">
+        <source>action.change_password</source>
+        <target>Zmień hasło</target>
+      </trans-unit>
+
+      <trans-unit id="label.author">
+        <source>label.author</source>
+        <target>Autor</target>
+      </trans-unit>
+
+      <trans-unit id="title.user_edit">
+        <source>title.user_edit</source>
+        <target>Edytuj użytkownika</target>
+      </trans-unit>
+
+      <trans-unit id="action.back">
+        <source>action.back</source>
+        <target>Powrót</target>
+      </trans-unit>
+
+      <trans-unit id="title.user_management">
+        <source>title.user_management</source>
+        <target>Zarządzanie użytkownikami</target>
+      </trans-unit>
+
+      <trans-unit id="title.users">
+        <source>title.users</source>
+        <target>Użytkownicy</target>
+      </trans-unit>
+
+      <trans-unit id="label.roles">
+        <source>label.roles</source>
+        <target>Role</target>
+      </trans-unit>
+
+      <trans-unit id="message.confirm_delete_user">
+        <source>message.confirm_delete_user</source>
+        <target>Czy na pewno chcesz usunąć tego użytkownika?</target>
+      </trans-unit>
+
+      <trans-unit id="message.no_users">
+        <source>message.no_users</source>
+        <target>Brak użytkowników.</target>
+      </trans-unit>
+
+      <trans-unit id="title.user_details">
+        <source>title.user_details</source>
+        <target>Szczegóły użytkownika</target>
+      </trans-unit>
+
+      <trans-unit id="title.avatar_create">
+        <source>title.avatar_create</source>
+        <target>Dodaj awatar</target>
+      </trans-unit>
+
+      <trans-unit id="label.current_avatar">
+        <source>label.current_avatar</source>
+        <target>Aktualny awatar</target>
+      </trans-unit>
+
+      <trans-unit id="avatar.delete.confirm">
+        <source>avatar.delete.confirm</source>
+        <target>Czy na pewno chcesz usunąć ten awatar?</target>
+      </trans-unit>
+
+    <trans-unit id="avatar.delete.button">
+      <source>avatar.delete.button</source>
+      <target>Usuń awatar</target>
+    </trans-unit>
+
+    <trans-unit id="avatar.edit_title">
+      <source>avatar.edit_title</source>
+      <target>Edytuj awatar</target>
+    </trans-unit>
+
+    <trans-unit id="avatar.edit_header">
+      <source>avatar.edit_header</source>
+      <target>Edycja awataru</target>
+    </trans-unit>
+
+    <trans-unit id="button.save">
+      <source>button.save</source>
+      <target>Zapisz</target>
+    </trans-unit>
+
+    <trans-unit id="link.back_to_tasks">
+      <source>link.back_to_tasks</source>
+      <target>Powrót do zadań</target>
+    </trans-unit>
+
+    <trans-unit id="title.record_view">
+      <source>title.record_view</source>
+      <target>Rekord #%id%</target>
+    </trans-unit>
+
+    <trans-unit id="action.register">
+      <source>action.register</source>
+      <target>Zarejestruj się</target>
+    </trans-unit>
 
 
 
+
+
+
+
+    <trans-unit id="avatar.action.create">
+        <source>avatar.action.create</source>
+        <target>Utwórz awatar</target>
+      </trans-unit>
+
+      <trans-unit id="avatar.action.edit">
+        <source>avatar.action.edit</source>
+        <target>Edytuj awatar</target>
+      </trans-unit>
+
+      <trans-unit id="avatar.action.delete">
+        <source>avatar.action.delete</source>
+        <target>Usuń awatar</target>
+      </trans-unit>
+
+      <trans-unit id="avatar.action.delete_confirm">
+        <source>avatar.action.delete_confirm</source>
+        <target>Czy na pewno chcesz usunąć tego awatara?</target>
+      </trans-unit>
+
+      <trans-unit id="label.avatar">
+        <source>label.avatar</source>
+        <target>Awatar:</target>
+      </trans-unit>
+
+      <trans-unit id="form.email">
+        <source>form.email</source>
+        <target>Email:</target>
+      </trans-unit>
+
+      <trans-unit id="form.password">
+        <source>form.password</source>
+        <target>Hasło:</target>
+      </trans-unit>
+
+      <trans-unit id="form.password_repeat">
+        <source>form.password_repeat</source>
+        <target>Powtórz hasło:</target>
+      </trans-unit>
 
     </body>
   </file>

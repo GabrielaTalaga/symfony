@@ -25,6 +25,8 @@
                 <th>{{ knp_pagination_sortable(pagination, 'label.updated_at'|trans, 'task.updatedAt') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label.title'|trans, 'task.title') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label_category'|trans, 'category.title') }}</th>
+                <th>{{ 'label.tags'|trans }}</th>
+                <th>{{ 'label.author'|trans }}</th>
                 <th>{{ 'label.actions'|trans }}</th>
             </tr>
             </thead>
@@ -35,7 +37,37 @@
                     <td>{{ task.createdAt|format_date('long') }}</td>
                     <td>{{ task.updatedAt|format_date('long') }}</td>
                     <td>{{ task.title }}</td>
-                    <td>{{ task.category.title }}</td>
+                    <td>
+                        <a class="btn btn-outline-primary"
+                           href="{{ url('task_index', {'categoryId': task.category.id, 'statusId': task.status.value}) }}"
+                           title="{{ task.category.title }}">
+                            {{ task.category.title }}
+                        </a>
+                    </td>
+
+                    <td>
+                        {% if task.tags is defined and task.tags|length %}
+                            {% for tag in task.tags %}
+                                <a class="btn btn-outline-primary btn-sm mb-1"
+                                   href="{{ url('task_index', {'tagId': tag.id, 'statusId': task.status.value}) }}"
+                                   title="{{ tag.title }}">
+                                    {{ tag.title }}
+                                </a>
+                            {% endfor %}
+                        {% else %}
+                            <em>{{ 'message.no_tags'|trans }}</em>
+                        {% endif %}
+                    </td>
+
+                    <td>
+                        {% if task.author is not null %}
+                            {{ task.author.email }}
+                        {% else %}
+                            <em>(no author)</em>
+                        {% endif %}
+                    </td>
+
+
                     <td>
                         <a href="{{ path('task_view', {id: task.id}) }}" class="btn btn-sm btn-outline-primary" title="{{ 'action.view'|trans }}">
                             {{ 'action.view'|trans }}

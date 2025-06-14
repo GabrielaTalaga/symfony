@@ -6,11 +6,15 @@
 
 namespace App\Repository;
 
+use App\Entity\User;
 use App\Entity\Category;
 use App\Entity\Task;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
+use App\Dto\TaskListFiltersDto;
+use App\Entity\Enum\TaskStatus;
+use Doctrine\DBAL\Types\Types;
 
 /**
  * Class TaskRepository.
@@ -32,16 +36,25 @@ class TaskRepository extends ServiceEntityRepository
     /**
      * Query all records.
      *
+     * @param User               $author  User entity
+     * @param TaskListFiltersDto $filters Filters
+     *
      * @return QueryBuilder Query builder
      */
-    public function queryAll(): QueryBuilder
+    public function queryAll(User $author, TaskListFiltersDto $filters): QueryBuilder
     {
-        return $this->createQueryBuilder('task')
+        $queryBuilder = $this->createQueryBuilder('task')
             ->select(
-                'partial task.{id, createdAt, updatedAt, title}',
-                'partial category.{id, title}'
+                'partial task.{id, createdAt, updatedAt, title, status}',
+                'partial category.{id, title}',
+                'partial tags.{id, title}'
             )
-            ->join('task.category', 'category');
+            ->join('task.category', 'category')
+            ->leftJoin('task.tags', 'tags')
+            ->andWhere('task.author = :author')
+            ->setParameter('author', $author);
+
+        return $this->applyFiltersToList($queryBuilder, $filters);
     }
 
     /**
@@ -83,4 +96,40 @@ class TaskRepository extends ServiceEntityRepository
         $this->getEntityManager()->remove($task);
         $this->getEntityManager()->flush();
     }
+
+
+
+
+    /**
+     * Apply filters to paginated list.
+     *
+     * @param QueryBuilder       $queryBuilder Query builder
+     * @param TaskListFiltersDto $filters      Filters
+     *
+     * @return QueryBuilder Query builder
+     */
+    private function applyFiltersToList(QueryBuilder $queryBuilder, TaskListFiltersDto $filters): QueryBuilder
+    {
+        if ($filters->category instanceof Category) {
+            $queryBuilder->andWhere('category = :category')
+                ->setParameter('category', $filters->category);
+        }
+
+        if ($filters->tag instanceof Tag) {
+            $queryBuilder->andWhere('tags IN (:tag)')
+                ->setParameter('tag', $filters->tag);
+        }
+
+        if ($filters->taskStatus instanceof TaskStatus) {
+            $queryBuilder->andWhere('task.status = :status')
+                ->setParameter('status', $filters->taskStatus->value, Types::INTEGER);
+        }
+
+        return $queryBuilder;
+    }
+
+
+
+
+
 }
